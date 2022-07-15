@@ -42,7 +42,7 @@ async def reply_mes(callback_query: types.CallbackQuery):
 @dp.message_handler(text='Узнать время')
 async def time(message: types.Message):
     now_date = datetime.datetime.now()
-    await bot.send_message(message.from_user.id, f'{now_date.strftime("%d,%m,%y,%H:%M:%S")}')
+    await bot.send_message(message.from_user.id, f'{now_date.strftime("%H:%M:%S")}')
 
 
 @dp.message_handler(text='Пожелание хорошего дня!')
