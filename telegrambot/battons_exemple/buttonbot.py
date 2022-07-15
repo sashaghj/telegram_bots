@@ -9,7 +9,7 @@ import datetime
 logging.basicConfig(level=logging.DEBUG, filename='mylog.log',
                     format='%(asctime)s | %(levelname)s | %(funcName)s: %(lineno)d | %(message)s',
                     datefmt='%H:%M:%S')
-bot = Bot('5412674596:AAEn0fN0AvcyHgNhpHuH69-RnSL3IzZRIE8')
+bot = Bot('token')
 dp = Dispatcher(bot)
 
 
