@@ -5,14 +5,12 @@ from aiogram.utils import executor
 import logging
 import os
 import datetime
-from telegram_bot.config import token
-
 
 
 logging.basicConfig(level=logging.DEBUG, filename='mylog.log',
                     format='%(asctime)s | %(levelname)s | %(funcName)s: %(lineno)d | %(message)s',
                     datefmt='%H:%M:%S')
-bot = Bot(token)
+bot = Bot('token')
 dp = Dispatcher(bot)
 
 
