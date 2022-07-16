@@ -5,11 +5,14 @@ from aiogram.utils import executor
 import logging
 import os
 import datetime
+from telegram_bot.config import token
+
+
 
 logging.basicConfig(level=logging.DEBUG, filename='mylog.log',
                     format='%(asctime)s | %(levelname)s | %(funcName)s: %(lineno)d | %(message)s',
                     datefmt='%H:%M:%S')
-bot = Bot('token')
+bot = Bot(token)
 dp = Dispatcher(bot)
 
 
@@ -36,7 +39,7 @@ async def reply_mes(callback_query: types.CallbackQuery):
 
     now_date = datetime.datetime.now()
 
-    await bot.send_message(callback_query.from_user.id, f'{now_date.strftime("%d,%m,%y,%H:%M:%S")}')
+    await bot.send_message(callback_query.from_user.id, f'{now_date.strftime("%d,%m,%y")}')
 
 
 @dp.message_handler(text='Узнать время')
@@ -63,7 +66,7 @@ time = KeyboardButton('Узнать время')
 user_kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).row(button_good_morning, button_good_night,
                                                                                 time, button_goog_day)
 
-button_date = InlineKeyboardButton(text='Время и дата', callback_data='button_data')
+button_date = InlineKeyboardButton(text='Узнать дату', callback_data='button_data')
 user_inline_kb = InlineKeyboardMarkup(resize_keyboard=True).row(button_date)
 
 if __name__ == '__main__':
